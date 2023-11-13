@@ -1,0 +1,41 @@
+// Testing the catalog-service - make sure to update the port
+@catalog-service-port = 57244
+
+// Get all items
+##
+GET http://localhost:{{catalog-service-port}}/items
+
+// Get a single item
+###
+# @prompt item-id
+GET http://localhost:{{catalog-service-port}}/items/{{item-id}}
+
+// Create a new item
+###
+# @prompt item-sku
+# @prompt item-name
+# @prompt item-price
+POST  http://localhost:{{catalog-service-port}}/items
+content-type: application/json
+
+{
+    "sku": {{item-sku}},
+    "name": "{{item-name}}",
+    "price": {{item-price}}
+}
+
+// Updating an existing item
+###
+# @prompt item-id
+# @prompt new-price
+PUT http://localhost:{{catalog-service-port}}/items/{{item-id}}
+content-type: application/json
+
+{
+    "price": {{new-price}}
+}
+
+// Delete an existing item
+###
+# @prompt item-id
+DELETE http://localhost:{{catalog-service-port}}/items/{{item-id}}
