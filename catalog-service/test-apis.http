@@ -39,3 +39,7 @@ content-type: application/json
 ###
 # @prompt item-id
 DELETE http://localhost:{{catalog-service-port}}/items/{{item-id}}
+
+// Registering service
+###
+PUT http://localhost:3080/register/myservice/1.1.0/3000
