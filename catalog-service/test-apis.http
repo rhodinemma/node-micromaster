@@ -42,7 +42,21 @@ DELETE http://localhost:{{catalog-service-port}}/items/{{item-id}}
 
 // Registering service
 ###
+PUT http://localhost:3080/register/myservice/1.2.1/3003 
+###
 PUT http://localhost:3080/register/myotherservice/0.0.1/5003 
+
+// Querying the registry
+###
+GET http://localhost:3080/find/myservice/1
+
+// Get random services because of the wildcard version
+###
+GET http://localhost:3080/find/myservice/*
+
+###
+GET http://localhost:3080/find/myotherservice/*
+
 
 // Unregistering a service
 ###
