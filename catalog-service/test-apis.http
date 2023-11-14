@@ -42,4 +42,8 @@ DELETE http://localhost:{{catalog-service-port}}/items/{{item-id}}
 
 // Registering service
 ###
-PUT http://localhost:3080/register/myservice/1.1.0/3000
+PUT http://localhost:3080/register/myotherservice/0.0.1/5003 
+
+// Unregistering a service
+###
+DELETE http://localhost:3080/register/myotherservice/0.0.1/5003 
